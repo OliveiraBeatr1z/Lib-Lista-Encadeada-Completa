@@ -21,7 +21,20 @@ public class Lista<T> implements ILista<T>{
 		}
 		return false;
 	}
-
+	
+	//verifica se o valor que quer ser adicionado já existe na lista
+	 public boolean contains(T dado) throws Exception {
+	        No<T> atual = primeiro;
+	        while (atual != null) {
+	            if (atual.dado.equals(dado)) {
+	                return true;
+	            }
+	            atual = atual.proximo;
+	        }
+	        addLast(dado);
+	        return false;
+	   }
+	 
 	@Override
 	public int size() {
 		int count = 0;
